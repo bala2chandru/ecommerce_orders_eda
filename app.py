@@ -68,7 +68,8 @@ st.markdown("""
 # ── LOAD DATA ────────────────────────────────────────────────────────
 @st.cache_data
 def load_data():
-    df = pd.read_csv(r"D:\ecommerce_orders_eda\ecommerce_orders_dataset.csv")
+    df = pd.read_csv('ecommerce_orders_dataset.csv')
+    ##df = pd.read_csv(r"D:\ecommerce_orders_eda\ecommerce_orders_dataset.csv")
     df['Order_Date'] = pd.to_datetime(df['Order_Date'])
     df['YearMonth']  = df['Order_Date'].dt.to_period('M').astype(str)
     df['Age_Group']  = pd.cut(df['Customer_Age'],
